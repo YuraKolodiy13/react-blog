@@ -1,0 +1,41 @@
+.comments{
+  h2{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 100%;
+    color: #000;
+    position: relative;
+    margin-top: 0;
+    font-family: Oswald, Arial, sans-serif;
+  }
+  .comments__items{
+    .comments__item{
+      border: 1px solid #e5e5e5;
+      margin-bottom: 15px;
+      padding: 30px;
+      border-radius: 5px;
+      h4{
+        margin-top: 0;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      p{
+        margin: 0;
+        font-size: 14px;
+        line-height: 26px;
+      }
+      &[data-open="false"]{
+        form{
+          display: none;
+        }
+      }
+      &[data-open="true"]{
+        .comments__edit, p{
+          display: none;
+        }
+      }
+    }
+  }
+}

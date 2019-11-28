@@ -1,0 +1,18 @@
+.auth{
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+  .form__field{
+    position: relative;
+    margin-bottom: 30px;
+    & > p{
+      position: absolute;
+      color: red;
+      font-size: 12px;
+    }
+  }
+  .MuiFormControl-root{
+    width: 100%;
+  }
+}

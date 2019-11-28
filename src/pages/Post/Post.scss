@@ -1,0 +1,16 @@
+.post{
+  display: flex;
+  justify-content: space-between;
+  .post__list{
+    width: 70%;
+  }
+  .posts__authors{
+    width: 25%;
+  }
+  .post__edit{
+    margin-top: 20px;
+    button:first-of-type{
+      margin-right: 20px;
+    }
+  }
+}
