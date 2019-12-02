@@ -8,10 +8,10 @@ export const auth = (email, password, isLogin) => {
       returnSecureToken: true
     };
 
-    let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBywqP6pJXkQX7O3YGCqCYRVkagdcdY2cI';
+    let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCeV1kJYeveSUnVUgHpf_Zan7KW8meGvSY';
 
     if(isLogin){
-      url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBywqP6pJXkQX7O3YGCqCYRVkagdcdY2cI';
+      url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCeV1kJYeveSUnVUgHpf_Zan7KW8meGvSY';
     }
 
     const response = await axios.post(url, authData);

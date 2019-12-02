@@ -46,7 +46,7 @@ class Post extends Component{
     return(
       <div className="post">
         <Helmet>
-          {/*<title>{post.title}</title>*/}
+          <title>{post.title}</title>
         </Helmet>
         <div className="post__list">
           <div className="posts__info post__info">
