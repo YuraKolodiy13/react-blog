@@ -23,7 +23,7 @@ const Header = props =>{
       {props.user
       ? <ul>
           <li>
-            <Link to={`/user/${props.user.id}`}>{props.user.email}</Link>
+            <Link to={`/user/${props.user.id}`}>{props.user.name}</Link>
           </li>
           <li>
             <span onClick={props.logout}>Logout</span>

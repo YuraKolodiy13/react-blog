@@ -5,11 +5,44 @@
   margin: 0 auto;
   .form__field{
     position: relative;
-    margin-bottom: 30px;
+    margin: 0 0 40px;
+    .MuiFormControl-root{
+      margin-bottom: 0;
+    }
     & > p{
       position: absolute;
       color: red;
       font-size: 12px;
+      margin-top: 3px;
+    }
+    &.form__password{
+      .form__icon{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        height: 40px;
+        width: 40px;
+        z-index: 10;
+        cursor: pointer;
+        &::after{
+          content: '\f06e';
+          font-family: "Font Awesome 5 Free";
+          font-size: 20px;
+          font-weight: bold;
+          color: #747474;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      &.show{
+        .form__icon{
+          &::after{
+            content: '\f070';
+          }
+        }
+      }
     }
   }
   .MuiFormControl-root{

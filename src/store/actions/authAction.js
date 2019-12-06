@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {CLEAR_ERROR, LOGIN_ERROR, LOGOUT_USER, SET_USER} from "./actionType";
 
-export const auth = (email, password, isLogin) => {
+export const auth = (email, password, isLogin, name) => {
   return async dispatch => {
     const authData = {
       email, password,
@@ -14,23 +14,44 @@ export const auth = (email, password, isLogin) => {
       url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCeV1kJYeveSUnVUgHpf_Zan7KW8meGvSY';
     }
 
-    const response = await axios.post(url, authData);
-    const data = response.data;
+    try {
+      const response = await axios.post(url, authData);
+      const data = response.data;
+      console.log(data, 43)
 
-    const user = {
-      email: data.email,
-      token: data.idToken,
-      id: data.localId
-    };
-    console.log(data.expiresIn, 654645324423)
+      let user = {
+        name: name,
+        email: data.email,
+        token: data.idToken,
+        id: data.localId
+      };
+      if(isLogin){
+        let res = await axios.get('https://blog-28454.firebaseio.com/users.json');
+        user = Object.values(res.data).find(item => item.id === data.localId);
+      }
+      if(!isLogin){
+        try{
+          await axios.post('https://blog-28454.firebaseio.com/users.json', user);
 
-    const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000);
+        }catch (e) {
+          console.log(e)
+        }
+      }
 
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('expirationDate', expirationDate);
+      const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000);
 
-    dispatch(authSuccess(user));
-    // dispatch(autoLogout(data.expiresIn))
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('expirationDate', expirationDate);
+
+      dispatch(authSuccess(user));
+      // dispatch(autoLogout(data.expiresIn))
+    }catch (e) {
+      dispatch({
+        type: LOGIN_ERROR,
+        error: e.response.data
+      })
+    }
+
   }
 };
 

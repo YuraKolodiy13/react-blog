@@ -4,6 +4,7 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import Button from '@material-ui/core/Button';
 import {editPost, getPost} from "../../store/actions/postsAction";
 import {connect} from "react-redux";
+import RichTextEditor from 'react-rte';
 import './EditPost.scss'
 
 class EditPost extends Component{
@@ -12,7 +13,7 @@ class EditPost extends Component{
     super(props);
     this.state = {
       title: this.props.post.title,
-      value: this.props.post.value,
+      value: RichTextEditor.createValueFromString(this.props.post.value._cache.html, 'html'),
       author: this.props.post.author,
       date: this.props.post.date,
       comments: this.props.post.comments,
@@ -31,6 +32,11 @@ class EditPost extends Component{
     })
   };
 
+  onChange = (value) => {
+    value.toString('html')
+    this.setState({value: value});
+  };
+
   render(){
     return(
       <ValidatorForm onSubmit={this.onSubmit} className='editPost'>
@@ -45,19 +51,9 @@ class EditPost extends Component{
           validators={['required', 'minStringLength:2']}
           errorMessages={['This field is required', 'Need at least 2 characters']}
         />
-        <TextValidator
-          ref={this.state.text}
-          id="outlined-multiline-static"
-          label="Text"
-          multiline
-          rows="7"
-          name='text'
+        <RichTextEditor
           value={this.state.value}
-          onChange={this.changeValue}
-          margin="normal"
-          variant="outlined"
-          validators={['required', 'minStringLength:5']}
-          errorMessages={['This field is required', 'Need at least 5 characters']}
+          onChange={this.onChange}
         />
         <Button
           variant="contained"

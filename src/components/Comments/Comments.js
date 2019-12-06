@@ -34,7 +34,8 @@ class Comments extends Component{
         <div className="comments__items">
           {Object.entries(post.comments).map((item, key) =>
             <div key={key} className='comments__item' data-open="false">
-              <h4>{item[1].author.email} says: {item[1].author.id === post.author.id ? <span>author</span> : null}</h4>
+              <p>{console.log(item[1].author, 4535)}</p>
+              <h4>{item[1].author.name} says: {item[1].author.id === post.author.id ? <span>author</span> : null}</h4>
               <p>{item[1].text}</p>
               <form onSubmit={this.onSubmit}>
                 <TextField

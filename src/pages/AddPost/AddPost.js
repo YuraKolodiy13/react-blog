@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import axios from "axios/index";
 // import PropTypes from 'prop-types'
 
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
@@ -24,8 +25,10 @@ class AddPost extends Component{
       value: RichTextEditor.createEmptyValue(),
       author: {
         email: '',
-        id: ''
+        id: '',
+        name: ''
       },
+      file: '',
       date: '',
       comments: ''
     };
@@ -51,7 +54,7 @@ class AddPost extends Component{
   };
 
   onChange = (value) => {
-    value.toString('html')
+    value.toString('html');
     this.setState({value});
   };
 
@@ -61,10 +64,22 @@ class AddPost extends Component{
       author: {
         email: this.props.user.email,
         id: this.props.user.id,
+        name: this.props.user.name
       },
       date: Date.now()
     });
+
+    // this.uploadFile();
     this.props.addPost(this.state, this.props.history);
+  };
+
+  uploadFile = () => {
+    const fd = new FormData();
+    fd.append('image', this.state.file, this.state.file.name);
+    axios.post('https://us-central1-blog-28454.cloudfunctions.net/uploadFile', fd)
+      .then(res => {
+        console.log(res)
+      })
   };
 
   onBlur = e => {
@@ -90,6 +105,7 @@ class AddPost extends Component{
             validators={['required', 'minStringLength:2']}
             errorMessages={['This field is required', 'Need at least 2 characters']}
           />
+          {/*<input type="file" name='file' onChange={e => this.setState({file: e.target.files[0]})}/>*/}
           {/*<TextValidator*/}
             {/*id="outlined-basic"*/}
             {/*className='trigger'*/}

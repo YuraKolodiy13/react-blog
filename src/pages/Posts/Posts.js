@@ -12,8 +12,10 @@ class Posts extends Component{
 
   componentDidMount(){
     this.props.getPosts();
-
   }
+
+
+
   render(){
     if(this.props.loading){
       return <Loader/>
@@ -30,7 +32,7 @@ class Posts extends Component{
               <div key={key} className='posts__item'>
                 <h4><Link to={`post/${item[0]}`}>{item[1].title}</Link></h4>
                 <div className="posts__info">
-                  <p><Link to={`/user/${item[1].author.id}`}>{item[1].author.email}</Link></p>
+                  <p><Link to={`/user/${item[1].author.id}`}>{item[1].author.name}</Link></p>
                   <time>{new Date(item[1].date).toLocaleDateString('en-US', {day: 'numeric', month: 'long', year: 'numeric'})}</time>
                   <span>{item[1].comments ? `${Object.entries(item[1].comments).length} Replies` : 'No Reply'}</span>
                 </div>

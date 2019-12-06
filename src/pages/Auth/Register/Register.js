@@ -1,13 +1,6 @@
 import React, {Component} from 'react'
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import IconButton from '@material-ui/core/IconButton';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 import '../index.scss'
 import {clearError, auth} from "../../../store/actions/authAction";
@@ -19,13 +12,23 @@ class Register extends Component{
   constructor(props){
     super(props);
     this.state = {
-      showPassword: false,
-      showPassword2: false,
       name: '',
-      password: '',
-      password2: '',
       email: '',
+      password: '',
+      password2: ''
     }
+  }
+
+  componentDidMount() {
+    // custom rule will have name 'isPasswordMatch'
+    ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
+      if (value !== this.state.password) {
+        return false;
+      }
+      return true;
+    });
+
+    // this.props.clearError()
   }
 
   componentDidUpdate(){
@@ -34,9 +37,6 @@ class Register extends Component{
     }
   }
 
-  // componentDidMount(){
-  //   this.props.clearError()
-  // }
 
   changeValue = (e) => {
     this.setState({
@@ -46,84 +46,78 @@ class Register extends Component{
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.auth(this.state.email, this.state.password, false);
+    this.props.auth(this.state.email, this.state.password, false, this.state.name);
   };
+
+  changePasswordType = e => {
+    if(e.target.nextElementSibling.querySelector('input').getAttribute('type') === 'password'){
+      e.target.nextElementSibling.querySelector('input').setAttribute('type', 'text')
+    }else {
+      e.target.nextElementSibling.querySelector('input').setAttribute('type', 'password')
+    }
+  }
 
   render(){
     return(
-      <form onSubmit={this.onSubmit} className='auth'>
+      <ValidatorForm onSubmit={this.onSubmit} className='auth trigger__wrap'>
         <Helmet>
           <title>Register</title>
         </Helmet>
         <div className="form__field">
-          <TextField
+          <TextValidator
             id="outlined-basic"
+            className='trigger'
             label="Name"
             variant="outlined"
             name='name'
             value={this.state.name}
             onChange={this.changeValue}
+            validators={['required', 'minStringLength:2']}
+            errorMessages={['This field is required', 'Need at least 2 characters']}
           />
-          {this.props.error.name ? <p>{this.props.error.name}</p> : null}
         </div>
         <div className="form__field">
-          <TextField
+          <TextValidator
             type='email'
+            className='trigger'
             value={this.state.email}
             label='Email'
             variant="outlined"
             name='email'
             onChange={this.changeValue}
+            validators={['required', 'isEmail']}
+            errorMessages={['This field is required', 'email is not valid']}
           />
-          {this.props.error.email ? <p>{this.props.error.email}</p> : null}
         </div>
-        <div className="form__field">
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={this.state.showPassword ? 'text' : 'password'}
-              value={this.state.password}
-              name='password'
-              onChange={this.changeValue}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={() => this.setState({showPassword: !this.state.showPassword})}
-                  >
-                    {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              labelWidth={70}
-            />
-          </FormControl>
-          {this.props.error.password ? <p>{this.props.error.password}</p> : null}
+        <div className="form__field form__password">
+          <span className='form__icon' onClick={this.changePasswordType}/>
+          <TextValidator
+            className='form__password trigger'
+            type='password'
+            value={this.state.password}
+            label='Password'
+            variant="outlined"
+            name='password'
+            onChange={this.changeValue}
+            validators={['required']}
+            errorMessages={['this field is required']}
+          >
+          </TextValidator>
         </div>
-        <div className="form__field">
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password2">Password2</InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password2"
-              type={this.state.showPassword2 ? 'text' : 'password'}
-              value={this.state.password2}
-              name='password2'
-              onChange={this.changeValue}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={() => this.setState({showPassword2: !this.state.showPassword2})}
-                  >
-                    {this.state.showPassword2 ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              labelWidth={80}
-            />
-          </FormControl>
-          {this.props.error.password2 ? <p>{this.props.error.password2}</p> : null}
+        <div className="form__field form__password">
+          <span className='form__icon' onClick={this.changePasswordType}/>
+          <TextValidator
+            className='form__password trigger'
+            type='password'
+            label='Password2'
+            variant="outlined"
+            name='password2'
+            onChange={this.changeValue}
+            validators={['isPasswordMatch', 'required']}
+            errorMessages={['password mismatch', 'this field is required']}
+            value={this.state.password2}
+          >
+          </TextValidator>
         </div>
         <Button
           variant="contained"
@@ -131,15 +125,14 @@ class Register extends Component{
           type='submit'
           className='button'
         >Sign up</Button>
-      </form>
+      </ValidatorForm>
     )
   }
 }
 
 const mapStateToProps = state => {
   return{
-    user: state.auth.user,
-    error: state.auth.error
+    user: state.auth.user
   }
 };
 

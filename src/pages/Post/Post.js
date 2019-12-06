@@ -21,7 +21,8 @@ class Post extends Component{
   constructor(props){
     super(props);
     this.state = {
-      open: false
+      open: false,
+      confirm: false
     }
   }
 
@@ -56,7 +57,7 @@ class Post extends Component{
           </div>
           <h1>{post.title}</h1>
           {post.value
-          ? <p dangerouslySetInnerHTML={{__html: post.value._cache.html}}/>
+          ? <div className='post__content' dangerouslySetInnerHTML={{__html: post.value._cache.html}}/>
           : null}
 
           {post.author && user && user.id === post.author.id
@@ -84,8 +85,35 @@ class Post extends Component{
                 variant="contained"
                 color="secondary"
                 className='button'
-                onClick={() => deletePost(this.props.match.params.id, this.props.history)}
+                onClick={() => this.setState({confirm: true})}
               >Remove</Button>
+              <Dialog
+                className='container confirm'
+                open={this.state.confirm}
+                onClose={() => this.setState({confirm: false})}
+                TransitionComponent={this.Transition}
+                keepMounted
+              >
+                <DialogContent >
+                  <div>
+                    <h4>You are sure you really wanted to delete it</h4>
+                    <div className="confirm__answer">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className='button'
+                        onClick={() => this.setState({confirm: false})}
+                      >No</Button>
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        className='button'
+                        onClick={() => deletePost(this.props.match.params.id, this.props.history)}
+                      >Yes</Button>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
             : null }
           {post.comments

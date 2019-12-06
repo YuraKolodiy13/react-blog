@@ -14,7 +14,8 @@ class AddComment extends Component{
       text: '',
       author: {
         email: '',
-        id: ''
+        id: '',
+        name: ''
       },
       date: ''
     }
@@ -31,6 +32,7 @@ class AddComment extends Component{
       author: {
         email: this.props.user.email,
         id: this.props.user.id,
+        name: this.props.user.name
       },
       date: Date.now()
     }, function () {
