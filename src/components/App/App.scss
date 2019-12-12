@@ -1,13 +1,20 @@
 body{
   font-family: 'Alegreya', serif;
+  margin-top: 100px;
   .container {
     max-width: 1170px;
     margin: 0 auto;
+    padding: 0 30px;
     @media (max-width: 1200px){
       max-width: 970px;
     }
     @media (max-width: 768px) {
       max-width: 100%;
+    }
+    &.app-container{
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 110px);
     }
   }
   .MuiFormControl-root {
@@ -49,7 +56,9 @@ body{
     }
   }
   .RichTextEditor__root___2QXK-{
-    min-height: 200px;
     margin-bottom: 30px;
+    .public-DraftEditor-content{
+      min-height: 200px;
+    }
   }
 }

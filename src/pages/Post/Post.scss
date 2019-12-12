@@ -1,8 +1,29 @@
 .post{
   display: flex;
   justify-content: space-between;
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+  .posts__authors{
+    width: 25%;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+  }
   .post__list{
     width: 70%;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+    .post__img{
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 15px;
+    }
+    .post__info{
+      margin-bottom: 15px;
+    }
     .post__content{
       img{
         max-width: 100%;

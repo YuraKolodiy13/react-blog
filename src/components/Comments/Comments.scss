@@ -1,4 +1,5 @@
 .comments{
+  margin-top: 40px;
   h2{
     font-size: 20px;
     text-align: center;
@@ -17,6 +18,18 @@
       margin-bottom: 15px;
       padding: 30px;
       border-radius: 5px;
+      form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .MuiFormControl-root{
+          margin-bottom: 20px;
+        }
+        .MuiInputLabel-outlined.MuiInputLabel-shrink{
+          background: #fff;
+          padding: 2px 5px;
+        }
+      }
       h4{
         margin-top: 0;
         border-bottom: 1px solid #e5e5e5;
@@ -36,6 +49,14 @@
           display: none;
         }
       }
+      .comments__edit{
+        button:first-of-type{
+          margin-right: 20px;
+        }
+      }
+    }
+    &.editing{
+
     }
   }
 }

@@ -57,6 +57,10 @@ class Register extends Component{
     }
   }
 
+  onBlur = e => {
+    e.target.closest('.MuiFormControl-root').classList.remove('trigger')
+  };
+
   render(){
     return(
       <ValidatorForm onSubmit={this.onSubmit} className='auth trigger__wrap'>
@@ -72,6 +76,7 @@ class Register extends Component{
             name='name'
             value={this.state.name}
             onChange={this.changeValue}
+            onBlur={this.onBlur}
             validators={['required', 'minStringLength:2']}
             errorMessages={['This field is required', 'Need at least 2 characters']}
           />
@@ -85,6 +90,7 @@ class Register extends Component{
             variant="outlined"
             name='email'
             onChange={this.changeValue}
+            onBlur={this.onBlur}
             validators={['required', 'isEmail']}
             errorMessages={['This field is required', 'email is not valid']}
           />
@@ -99,6 +105,7 @@ class Register extends Component{
             variant="outlined"
             name='password'
             onChange={this.changeValue}
+            onBlur={this.onBlur}
             validators={['required']}
             errorMessages={['this field is required']}
           >
@@ -113,6 +120,7 @@ class Register extends Component{
             variant="outlined"
             name='password2'
             onChange={this.changeValue}
+            onBlur={this.onBlur}
             validators={['isPasswordMatch', 'required']}
             errorMessages={['password mismatch', 'this field is required']}
             value={this.state.password2}

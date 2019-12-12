@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './Comments.scss'
 import Button from '@material-ui/core/Button';
-import {deleteComment, editComment} from "../../store/actions/postsAction";
+import {deleteComment, editComment, getPost} from "../../store/actions/postsAction";
 import {connect} from "react-redux";
 import TextField from '@material-ui/core/TextField';
 
@@ -20,9 +20,9 @@ class Comments extends Component{
     })
   };
 
-  onSubmit = e => {
+  onSubmit = (e, prop) => {
     e.preventDefault();
-    this.props.editComment(this.props.id, this.state)
+    this.props.editComment(this.props.id, prop, this.state)
       .then(() => this.props.getPost(this.props.id));
   };
 
@@ -34,10 +34,9 @@ class Comments extends Component{
         <div className="comments__items">
           {Object.entries(post.comments).map((item, key) =>
             <div key={key} className='comments__item' data-open="false">
-              <p>{console.log(item[1].author, 4535)}</p>
               <h4>{item[1].author.name} says: {item[1].author.id === post.author.id ? <span>author</span> : null}</h4>
               <p>{item[1].text}</p>
-              <form onSubmit={this.onSubmit}>
+              <form onSubmit={(e) => this.onSubmit(e, item[0])}>
                 <TextField
                   id="outlined-multiline-static"
                   label="Type something"
@@ -52,7 +51,10 @@ class Comments extends Component{
                   color="primary"
                   type="submit"
                   className='button'
-                  onClick={(e) => e.target.closest('.comments__item').dataset.open = 'false'}
+                  onClick={(e) => {
+                    e.target.closest('.comments__item').dataset.open = 'false';
+                    document.querySelector('.comments__items').classList.remove('editing');
+                  }}
                 >Save</Button>
               </form>
 
@@ -63,7 +65,13 @@ class Comments extends Component{
                     variant="contained"
                     color="primary"
                     className='button'
-                    onClick={(e) => {e.target.closest('.comments__item').dataset.open = 'true'; this.setState({text: item[1].text})}}
+                    onClick={(e) => {
+                      if(document.querySelector('.comments__item[data-open="true"]')){
+                        document.querySelector('.comments__item[data-open="true"]').setAttribute('data-open', 'false');
+                      }
+                      e.target.closest('.comments__item').dataset.open = 'true';
+                      this.setState({text: item[1].text})
+                    }}
                   >Edit</Button>
                   <Button
                     variant="contained"
@@ -91,6 +99,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   deleteComment: deleteComment,
   editComment: editComment,
+  getPost: getPost
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comments);

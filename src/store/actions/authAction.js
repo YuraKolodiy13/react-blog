@@ -8,16 +8,15 @@ export const auth = (email, password, isLogin, name) => {
       returnSecureToken: true
     };
 
-    let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCeV1kJYeveSUnVUgHpf_Zan7KW8meGvSY';
+    let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBJ9XsRkSAQcAUSGKGJ8X_wlu3v66YdHRs';
 
     if(isLogin){
-      url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCeV1kJYeveSUnVUgHpf_Zan7KW8meGvSY';
+      url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBJ9XsRkSAQcAUSGKGJ8X_wlu3v66YdHRs';
     }
 
     try {
       const response = await axios.post(url, authData);
       const data = response.data;
-      console.log(data, 43)
 
       let user = {
         name: name,
@@ -26,12 +25,12 @@ export const auth = (email, password, isLogin, name) => {
         id: data.localId
       };
       if(isLogin){
-        let res = await axios.get('https://blog-28454.firebaseio.com/users.json');
+        let res = await axios.get('https://fir-89ca2.firebaseio.com/users.json');
         user = Object.values(res.data).find(item => item.id === data.localId);
       }
       if(!isLogin){
         try{
-          await axios.post('https://blog-28454.firebaseio.com/users.json', user);
+          await axios.post('https://fir-89ca2.firebaseio.com/users.json', user);
 
         }catch (e) {
           console.log(e)

@@ -1,10 +1,87 @@
 .addPost{
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
   button{
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
   }
+  .addPost__file{
+    width: 240px;
+    height: 240px;
+    background-color: #EBF0F4;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    &.error{
+      border-color: #f44336;
+      span{
+        display: block;
+      }
+    }
+    &[style *= 'background'] {
+      label{
+        font-size: 0;
+        &::before{
+          display: none;
+        }
+      }
+      .MuiFormHelperText-root{
+        display: none;
+      }
+    }
+    label{
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      cursor: pointer;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: none;
+      padding-top: 30px;
+      &::before{
+        content: '\f030';
+        font-family: "Font Awesome 5 Free";
+        font-weight: bold;
+        font-size: 30px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
+      }
+    }
+    .MuiInput-root{
+      display: none;
+    }
+  }
+  .RichTextEditor__root___2QXK-{
+    margin-bottom: 0;
+    &.error{
+      & + span{
+        display: block;
+      }
+      border-color: #f44336;
+    }
+  }
+}
+span.MuiFormHelperText-root.Mui-error{
+  display: none;
+  color: #f44336;
+  margin: 0;
+  font-size: 0.75rem;
+  margin-top: 8px;
+  min-height: 1em;
+  text-align: left;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 0.03333em;
 }

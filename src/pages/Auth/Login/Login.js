@@ -43,7 +43,6 @@ class Login extends Component{
   };
 
   changePasswordType = e => {
-    console.log(5435)
     e.target.parentElement.classList.toggle('show');
     if(e.target.nextElementSibling.querySelector('input').getAttribute('type') === 'password'){
       e.target.nextElementSibling.querySelector('input').setAttribute('type', 'text');
@@ -51,7 +50,7 @@ class Login extends Component{
       e.target.nextElementSibling.querySelector('input').setAttribute('type', 'password');
 
     }
-  }
+  };
 
   render(){
     return(
@@ -68,6 +67,7 @@ class Login extends Component{
             variant="outlined"
             name='email'
             onChange={this.changeValue}
+            onBlur={this.onBlur}
             validators={['required', 'isEmail']}
             errorMessages={['This field is required', 'email is not valid']}
           />
@@ -82,6 +82,7 @@ class Login extends Component{
             variant="outlined"
             name='password'
             onChange={this.changeValue}
+            onBlur={this.onBlur}
             validators={['required']}
             errorMessages={['this field is required']}
           >

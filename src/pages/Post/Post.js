@@ -50,12 +50,17 @@ class Post extends Component{
           <title>{post.title}</title>
         </Helmet>
         <div className="post__list">
+          <h1>{post.title}</h1>
           <div className="posts__info post__info">
-            <p>{post.author ? <Link to={`/user/${post.author.id}`}>{post.author.email}</Link> : null}</p>
+            <p>{post.author ? <Link to={`/user/${post.author.id}`}>{post.author.name}</Link> : null}</p>
             <time>{new Date(post.date).toLocaleDateString('en-US', {day: 'numeric', month: 'long', year: 'numeric'})}</time>
             <span>{post.comments ? `${Object.entries(post.comments).length} Replies` : 'No Reply'}</span>
           </div>
-          <h1>{post.title}</h1>
+
+          {post.featuredImage
+          ? <div className="post__img" style={{backgroundImage: `url(${post.featuredImage.replace(/ /g, '%20')})`}}/>
+          : null}
+
           {post.value
           ? <div className='post__content' dangerouslySetInnerHTML={{__html: post.value._cache.html}}/>
           : null}
@@ -96,7 +101,7 @@ class Post extends Component{
               >
                 <DialogContent >
                   <div>
-                    <h4>You are sure you really wanted to delete it</h4>
+                    <h4>Are you sure you really wanted to delete it?</h4>
                     <div className="confirm__answer">
                       <Button
                         variant="contained"

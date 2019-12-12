@@ -3,6 +3,7 @@
   flex-direction: column;
   max-width: 300px;
   margin: 0 auto;
+  width: 100%;
   .form__field{
     position: relative;
     margin: 0 0 40px;
@@ -25,7 +26,7 @@
         z-index: 10;
         cursor: pointer;
         &::after{
-          content: '\f06e';
+          content: '\f070';
           font-family: "Font Awesome 5 Free";
           font-size: 20px;
           font-weight: bold;
@@ -39,7 +40,7 @@
       &.show{
         .form__icon{
           &::after{
-            content: '\f070';
+            content: '\f06e';
           }
         }
       }
