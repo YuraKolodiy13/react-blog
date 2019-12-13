@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import { ValidatorForm, TextValidator, SelectValidator} from 'react-material-ui-form-validator';
 
 import Button from '@material-ui/core/Button';
 import {editPost, getPost} from "../../store/actions/postsAction";
@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import RichTextEditor from 'react-rte';
 import './EditPost.scss'
 import axios from 'axios'
+import MenuItem from '@material-ui/core/MenuItem';
 
 class EditPost extends Component{
 
@@ -19,6 +20,7 @@ class EditPost extends Component{
       date: this.props.post.date,
       comments: this.props.post.comments,
       featuredImage: this.props.post.featuredImage.replace(/ /g, '%20'),
+      category: this.props.post.category,
       file: ''
     };
   }
@@ -104,6 +106,21 @@ class EditPost extends Component{
           </label>
           <span className='MuiFormHelperText-root Mui-error'>This field is required</span>
         </div>
+        <SelectValidator
+          id="outlined-select-currency"
+          select
+          label="Category"
+          name='category'
+          value={this.state.category}
+          onChange={this.changeValue}
+          validators={['required']}
+          errorMessages={['This field is required']}
+          variant="outlined"
+        >
+          {this.props.categories.map(option => (
+            <MenuItem key={option.value} value={option.label}>{option.label}</MenuItem>
+          ))}
+        </SelectValidator>
         <div className="editor MuiFormControl-root">
           <RichTextEditor
             placeholder='Type something'
@@ -124,9 +141,15 @@ class EditPost extends Component{
   }
 }
 
+const mapStateToProps = state => {
+  return{
+    categories: state.posts.categories
+  }
+};
+
 const mapDispatchToProps = {
   editPost: editPost,
   getPost: getPost
 };
 
-export default connect(null, mapDispatchToProps)(EditPost)
+export default connect(mapStateToProps, mapDispatchToProps)(EditPost)

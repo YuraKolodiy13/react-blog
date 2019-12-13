@@ -15,6 +15,7 @@ import {Link} from  'react-router-dom'
 import Comments from "../../components/Comments/Comments";
 import Authors from "../../components/Authors/Authors";
 import {Helmet} from "react-helmet";
+import Categories from "../../components/Categories/Categories";
 
 class Post extends Component{
 
@@ -132,7 +133,10 @@ class Post extends Component{
             </div>
           }
         </div>
-        <Authors posts={posts}/>
+        <div className="sidebar">
+          <Categories/>
+          <Authors posts={posts}/>
+        </div>
       </div>
     )
   }

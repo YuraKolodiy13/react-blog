@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from "axios/index";
 // import PropTypes from 'prop-types'
 
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import { ValidatorForm, TextValidator, SelectValidator} from 'react-material-ui-form-validator';
 import RichTextEditor from 'react-rte';
 
 import Button from '@material-ui/core/Button';
@@ -10,13 +10,9 @@ import {addPost} from "../../store/actions/postsAction";
 import {connect} from "react-redux";
 import './AddPost.scss'
 import {Helmet} from "react-helmet";
+import MenuItem from '@material-ui/core/MenuItem';
 
 class AddPost extends Component{
-
-  //
-  // static propTypes = {
-  //   onChange: PropTypes.func
-  // };
 
   constructor(props){
     super(props);
@@ -31,7 +27,8 @@ class AddPost extends Component{
       featuredImage: '',
       file: '',
       date: '',
-      comments: ''
+      comments: '',
+      category: ''
     };
   }
 
@@ -160,6 +157,21 @@ class AddPost extends Component{
             </label>
             <span className='MuiFormHelperText-root Mui-error'>This field is required</span>
           </div>
+          <SelectValidator
+            id="outlined-select-currency"
+            select
+            label="Category"
+            name='category'
+            value={this.state.category}
+            onChange={this.changeValue}
+            validators={['required']}
+            errorMessages={['This field is required']}
+            variant="outlined"
+          >
+            {this.props.categories.map(option => (
+              <MenuItem key={option.value} value={option.label}>{option.label}</MenuItem>
+            ))}
+          </SelectValidator>
           <div className="editor MuiFormControl-root">
             <RichTextEditor
               placeholder='Type something'
@@ -183,7 +195,8 @@ class AddPost extends Component{
 }
 
 const mapsStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  categories: state.posts.categories
 });
 
 const mapDispatchToProps = {

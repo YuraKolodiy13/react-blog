@@ -7,6 +7,7 @@ import './Posts.scss'
 import Button from '@material-ui/core/Button';
 import Authors from "../../components/Authors/Authors";
 import Helmet from 'react-helmet'
+import Categories from "../../components/Categories/Categories";
 
 class Posts extends Component{
 
@@ -52,7 +53,10 @@ class Posts extends Component{
             )}
           </div>
         </div>
-        <Authors posts={this.props.posts}/>
+        <div className="sidebar">
+          <Categories/>
+          <Authors posts={this.props.posts}/>
+        </div>
       </div>
     )
   }

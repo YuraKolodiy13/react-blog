@@ -84,8 +84,8 @@ export const deleteComment = (postId, commentId) => async dispatch => {
 
 export const editComment = (postId, commentId, comment) => async dispatch => {
   await axios.patch(`https://fir-89ca2.firebaseio.com/posts/${postId}/comments/${commentId}.json`, comment);
-  const res = await axios.get(`https://fir-89ca2.firebaseio.com/posts/${postId}/comments/${commentId}.json`);
-  console.log(res.data, 42354)
+  // const res = await axios.get(`https://fir-89ca2.firebaseio.com/posts/${postId}/comments/${commentId}.json`);
+  // console.log(res.data, 42354)
   dispatch({
     type: EDIT_COMMENT
   })
