@@ -1,13 +1,64 @@
 body{
   font-family: 'Alegreya', serif;
+  margin-top: 100px;
   .container {
     max-width: 1170px;
     margin: 0 auto;
+    padding: 0 30px;
     @media (max-width: 1200px){
       max-width: 970px;
     }
     @media (max-width: 768px) {
       max-width: 100%;
+    }
+    &.app-container{
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 110px);
+    }
+  }
+  .MuiFormControl-root {
+    margin: 0 0 40px;
+    position: relative;
+    .MuiFormHelperText-root{
+      position: absolute;
+      top: 100%;
+      margin-left: 0;
+      &::before{
+        content: '\f071';
+        font-family: "Font Awesome 5 Free";
+        display: inline-block;
+        padding-right: 3px;
+        font-weight:700;
+      }
+    }
+  }
+  .trigger__wrap{
+    .trigger{
+      .MuiFormLabel-root{
+        &.Mui-focused{
+          color: #3f51b5;
+        }
+      }
+      .MuiInputBase-root{
+        &.Mui-error{
+          color: rgba(0, 0, 0, 0.54);
+        }
+        &.Mui-focused{
+          .MuiOutlinedInput-notchedOutline{
+            border-color: #3f51b5;
+          }
+        }
+      }
+      .MuiFormHelperText-root{
+        display: none;
+      }
+    }
+  }
+  .RichTextEditor__root___2QXK-{
+    margin-bottom: 30px;
+    .public-DraftEditor-content{
+      min-height: 200px;
     }
   }
 }

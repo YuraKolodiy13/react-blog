@@ -11,7 +11,15 @@ import {
 const initialState = {
   posts: [],
   post: {},
-  loading: false
+  loading: false,
+  categories: [
+    {label: 'travel'},
+    {label: 'music'},
+    {label: 'work'},
+    {label: 'education'},
+    {label: 'politics'},
+    {label: 'kids'}
+  ]
 };
 
 const postReducer = (state = initialState, action) => {

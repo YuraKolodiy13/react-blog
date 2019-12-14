@@ -15,13 +15,15 @@ import {Link} from  'react-router-dom'
 import Comments from "../../components/Comments/Comments";
 import Authors from "../../components/Authors/Authors";
 import {Helmet} from "react-helmet";
+import Categories from "../../components/Categories/Categories";
 
 class Post extends Component{
 
   constructor(props){
     super(props);
     this.state = {
-      open: false
+      open: false,
+      confirm: false
     }
   }
 
@@ -49,14 +51,19 @@ class Post extends Component{
           <title>{post.title}</title>
         </Helmet>
         <div className="post__list">
+          <h1>{post.title}</h1>
           <div className="posts__info post__info">
-            <p>{post.author ? <Link to={`/user/${post.author.id}`}>{post.author.email}</Link> : null}</p>
+            <p>{post.author ? <Link to={`/user/${post.author.id}`}>{post.author.name}</Link> : null}</p>
             <time>{new Date(post.date).toLocaleDateString('en-US', {day: 'numeric', month: 'long', year: 'numeric'})}</time>
             <span>{post.comments ? `${Object.entries(post.comments).length} Replies` : 'No Reply'}</span>
           </div>
-          <h1>{post.title}</h1>
+
+          {post.featuredImage
+          ? <div className="post__img" style={{backgroundImage: `url(${post.featuredImage.replace(/ /g, '%20')})`}}/>
+          : null}
+
           {post.value
-          ? <p dangerouslySetInnerHTML={{__html: post.value._cache.html}}/>
+          ? <div className='post__content' dangerouslySetInnerHTML={{__html: post.value._cache.html}}/>
           : null}
 
           {post.author && user && user.id === post.author.id
@@ -84,8 +91,35 @@ class Post extends Component{
                 variant="contained"
                 color="secondary"
                 className='button'
-                onClick={() => deletePost(this.props.match.params.id, this.props.history)}
+                onClick={() => this.setState({confirm: true})}
               >Remove</Button>
+              <Dialog
+                className='container confirm'
+                open={this.state.confirm}
+                onClose={() => this.setState({confirm: false})}
+                TransitionComponent={this.Transition}
+                keepMounted
+              >
+                <DialogContent >
+                  <div>
+                    <h4>Are you sure you really wanted to delete it?</h4>
+                    <div className="confirm__answer">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className='button'
+                        onClick={() => this.setState({confirm: false})}
+                      >No</Button>
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        className='button'
+                        onClick={() => deletePost(this.props.match.params.id, this.props.history)}
+                      >Yes</Button>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
             : null }
           {post.comments
@@ -99,7 +133,10 @@ class Post extends Component{
             </div>
           }
         </div>
-        <Authors posts={posts}/>
+        <div className="sidebar">
+          <Categories/>
+          <Authors posts={posts}/>
+        </div>
       </div>
     )
   }

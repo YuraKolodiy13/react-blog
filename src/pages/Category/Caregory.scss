@@ -1,0 +1,8 @@
+.category{
+  .category__empty{
+    display: none;
+  }
+  h2 + .category__empty{
+    display: block;
+  }
+}
