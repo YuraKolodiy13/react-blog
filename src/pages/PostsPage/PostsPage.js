@@ -6,12 +6,26 @@ import './PostsPage.scss'
 import Authors from "../../components/Authors/Authors";
 import Helmet from 'react-helmet'
 import Categories from "../../components/Categories/Categories";
-import Posts from "../../components/Posts/Posts";
+import PostItem from "../../components/PostItem/PostItem";
+import Button from '@material-ui/core/Button';
 
 class PostsPage extends Component{
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: 5
+    };
+  }
+
+  loadMore = () => {
+    this.setState((prev) => {
+      return {visible: prev.visible + 5};
+    });
+  };
+
   componentDidMount(){
-    this.props.getPosts();
+    this.props.getPosts()
   }
 
   render(){
@@ -26,13 +40,16 @@ class PostsPage extends Component{
         <div className="posts__list">
           <h1>List of articles</h1>
             <div className="posts__items">
-                {this.props.posts.map((item, key) =>
-                  <Posts item={item} key={key}/>
-                )}
+              {this.props.posts.slice(0, this.state.visible).map((item, key) =>
+                <PostItem item={item} key={key}/>
+              )}
             </div>
+          {this.state.visible < this.props.posts.length &&
+            <Button onClick={this.loadMore} variant="contained" color="secondary" type="button">Load more</Button>
+          }
         </div>
         <div className="sidebar">
-          <Categories/>
+          <Categories categoryId={this.props.match.params.id}/>
           <Authors posts={this.props.posts}/>
         </div>
       </div>

@@ -51,6 +51,10 @@ class Post extends Component{
           <title>{post.title}</title>
         </Helmet>
         <div className="post__list">
+          <div className="posts__info">
+            <p className='cat'><Link to={`/category/${post.category}`}>{post.category}</Link></p>
+            <p className='time'>{post.timeToRead} min read</p>
+          </div>
           <h1>{post.title}</h1>
           <div className="posts__info post__info">
             <p>{post.author ? <Link to={`/user/${post.author.id}`}>{post.author.name}</Link> : null}</p>
@@ -58,9 +62,9 @@ class Post extends Component{
             <span>{post.comments ? `${Object.entries(post.comments).length} Replies` : 'No Reply'}</span>
           </div>
 
-          {post.featuredImage
-          ? <div className="post__img" style={{backgroundImage: `url(${post.featuredImage.replace(/ /g, '%20')})`}}/>
-          : null}
+          <div className="post__img">
+            <img src={post.featuredImage} alt=""/>
+          </div>
 
           {post.value
           ? <div className='post__content' dangerouslySetInnerHTML={{__html: post.value._cache.html}}/>
@@ -134,7 +138,7 @@ class Post extends Component{
           }
         </div>
         <div className="sidebar">
-          <Categories/>
+          <Categories categoryId={this.props.match.params.id}/>
           <Authors posts={posts}/>
         </div>
       </div>

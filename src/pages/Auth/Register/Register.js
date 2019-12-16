@@ -63,7 +63,7 @@ class Register extends Component{
 
   render(){
     return(
-      <ValidatorForm onSubmit={this.onSubmit} className='auth trigger__wrap'>
+      <ValidatorForm onSubmit={this.onSubmit} className='auth trigger__wrap' onError={() => document.querySelector('.auth').classList.remove('trigger__wrap')}>
         <Helmet>
           <title>Register</title>
         </Helmet>

@@ -1,9 +1,8 @@
 .category{
-  display: block;
   .category__empty{
     display: none;
   }
-  h2 + .category__empty{
+  .posts__items .category__empty:only-child{
     display: block;
   }
 }

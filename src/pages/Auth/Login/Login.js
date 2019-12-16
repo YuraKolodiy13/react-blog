@@ -54,7 +54,7 @@ class Login extends Component{
 
   render(){
     return(
-      <ValidatorForm className='auth trigger__wrap' onSubmit={this.onSubmit}>
+      <ValidatorForm className='auth trigger__wrap' onSubmit={this.onSubmit} onError={() => document.querySelector('.auth').classList.remove('trigger__wrap')}>
         <Helmet>
           <title>Login</title>
         </Helmet>

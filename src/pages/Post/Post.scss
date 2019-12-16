@@ -16,10 +16,10 @@
       width: 100%;
     }
     .post__img{
-      height: 400px;
-      background-size: cover;
-      background-position: center;
-      margin-bottom: 15px;
+      img{
+        max-width: 100%;
+        height: auto;
+      }
     }
     .post__info{
       margin-bottom: 15px;

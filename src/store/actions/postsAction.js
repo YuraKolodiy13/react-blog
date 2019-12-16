@@ -32,6 +32,7 @@ export const getPosts = () => async dispatch => {
   Object.entries(res.data).forEach(item => {
     posts.push(item)
   });
+  posts.reverse();
   dispatch({
     type: GET_POSTS_SUCCESS,
     posts: posts
