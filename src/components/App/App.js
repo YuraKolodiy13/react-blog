@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Route, Switch, Redirect} from "react-router-dom";
-import Posts from "../../pages/Posts/Posts";
+import PostsPage from "../../pages/PostsPage/PostsPage";
 import Post from "../../pages/Post/Post";
 import Header from "../Header/Header";
 import Login from "../../pages/Auth/Login/Login";
@@ -33,7 +33,7 @@ class App extends Component{
       <div className='container app-container'>
         <Header/>
         <Switch>
-          <Route path='/' component={Posts} exact/>
+          <Route path='/' component={PostsPage} exact/>
           <Route path='/post/:id' component={Post}/>
           <Route path='/user/:id' component={User}/>
           <Route path='/category/:id' component={Category}/>

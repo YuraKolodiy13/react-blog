@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ca99690-0b9f-4eb5-ab44-867ce512cc76" name="Default" comment="" />
+    <list default="true" id="2ca99690-0b9f-4eb5-ab44-867ce512cc76" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Posts/Posts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Posts/Posts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/PostsPage/PostsPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/PostsPage/PostsPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Category/Caregory.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Category/Caregory.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Category/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Category/Category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Posts/Posts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Posts/Posts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/User.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,9 +39,21 @@
         <entry file="file://$PROJECT_DIR$/src/pages/Category/Category.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="31" column="37" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="37" />
+              <caret line="29" column="37" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="37" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/App/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/Category/Caregory.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -68,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="postsReducer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="postsReducer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/reducers/postsReducer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
               <folding>
                 <element signature="e#0#200#0" expanded="true" />
               </folding>
@@ -109,15 +133,6 @@
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Posts.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Posts/Posts.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -387,13 +402,6 @@
               <item name="react-blog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Posts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="User" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -467,7 +475,7 @@
       <workItem from="1575113951291" duration="1480000" />
       <workItem from="1575298761106" duration="83471000" />
       <workItem from="1576135849097" duration="2818000" />
-      <workItem from="1576144530398" duration="29829000" />
+      <workItem from="1576144530398" duration="29936000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1575272342144</created>
@@ -497,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1576252515908</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added categories">
+      <created>1576483386343</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576483386343</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185932000" />
+    <option name="totallyTimeSpent" value="186039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -512,9 +527,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.80707574" visible="true" weight="0.28016788" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.80707574" visible="true" weight="0.28016788" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24875621" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24875621" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -826,16 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/App/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/User/User.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -880,7 +885,7 @@
     <entry file="file://$PROJECT_DIR$/src/pages/Category/Caregory.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -907,7 +912,7 @@
     <entry file="file://$PROJECT_DIR$/src/pages/Category/Category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="37" />
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="37" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
@@ -937,9 +942,19 @@
     <entry file="file://$PROJECT_DIR$/src/store/reducers/postsReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding>
             <element signature="e#0#200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/App/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
