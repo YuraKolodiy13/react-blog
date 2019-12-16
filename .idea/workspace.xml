@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ca99690-0b9f-4eb5-ab44-867ce512cc76" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Categories/Categories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Categories/Categories.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Category/Caregory.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Category/Category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Authors/Authors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Authors/Authors.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comments/Comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comments/Comments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comments/Comments.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comments/Comments.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditPost/EditPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditPost/EditPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddPost/AddPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddPost/AddPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Post/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Post/Post.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Post/Post.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Posts/Posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Posts/Posts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Posts/Posts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/postsAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/postsAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/postsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/postsReducer.js" afterDir="false" />
-    </list>
+    <list default="true" id="2ca99690-0b9f-4eb5-ab44-867ce512cc76" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -487,7 +467,7 @@
       <workItem from="1575113951291" duration="1480000" />
       <workItem from="1575298761106" duration="83471000" />
       <workItem from="1576135849097" duration="2818000" />
-      <workItem from="1576144530398" duration="29199000" />
+      <workItem from="1576144530398" duration="29829000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1575272342144</created>
@@ -510,11 +490,18 @@
       <option name="project" value="LOCAL" />
       <updated>1576169324461</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added categories">
+      <created>1576252515908</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576252515908</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185302000" />
+    <option name="totallyTimeSpent" value="185932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -553,7 +540,8 @@
     <MESSAGE value="added editor" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="added new functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new functionality" />
+    <MESSAGE value="added categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="added categories" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pages/AddPost/AddPost.scss">
