@@ -18,6 +18,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
+// import Select from "@material-ui/core/Select";
+
 class AddPost extends Component{
 
   constructor(props){
@@ -35,7 +37,8 @@ class AddPost extends Component{
       date: '',
       comments: '',
       category: '',
-      timeToRead: '1'
+      timeToRead: '1',
+      age: 10
     };
   }
 
@@ -174,6 +177,18 @@ class AddPost extends Component{
             validators={['required']}
             errorMessages={['This field is required']}
             variant="outlined"
+            SelectProps={{
+              MenuProps: {
+                anchorOrigin: {
+                  vertical: "bottom",
+                  horizontal: "left"
+                },
+                transformOrigin: {
+                  vertical: "top",
+                  horizontal: "left"
+                },
+                getContentAnchorEl: null}
+            }}
           >
             {this.props.categories.map((option, key) => (
               <MenuItem key={key} value={option.label}>{option.label}</MenuItem>
