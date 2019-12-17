@@ -19,6 +19,7 @@
       a{
         text-decoration: none;
         transition: .3s;
+        &.active,
         &:hover{
           color: #a0cc50;
         }
@@ -37,6 +38,7 @@
           text-decoration: none;
           transition: .3s;
           cursor: pointer;
+          &.active,
           &:hover{
             color: #a0cc50;
           }

@@ -11,7 +11,7 @@ class Authors extends Component{
         <h4>Our authors</h4>
         {Object.values(authors).map((item, key) =>
           <div className="posts__author" key={key}>
-            <Link to={`/user/${item.id}`}>{item.name}</Link>
+            <Link to={`/author/${item.id}`}>{item.name}</Link>
           </div>
         )}
       </div>

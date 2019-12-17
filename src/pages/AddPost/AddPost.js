@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import axios from "axios/index";
 // import PropTypes from 'prop-types'
 
@@ -132,7 +132,7 @@ class AddPost extends Component{
 
   render(){
     return(
-      <div className='container'>
+      <Fragment>
         <Helmet>
           <title>Add post</title>
         </Helmet>
@@ -211,7 +211,7 @@ class AddPost extends Component{
           >Add</Button>
         </ValidatorForm>
 
-      </div>
+      </Fragment>
     )
   }
 }

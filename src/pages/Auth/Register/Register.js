@@ -50,6 +50,7 @@ class Register extends Component{
   };
 
   changePasswordType = e => {
+    e.target.parentElement.classList.toggle('show');
     if(e.target.nextElementSibling.querySelector('input').getAttribute('type') === 'password'){
       e.target.nextElementSibling.querySelector('input').setAttribute('type', 'text')
     }else {

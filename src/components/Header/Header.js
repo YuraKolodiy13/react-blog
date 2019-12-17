@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.scss'
-import {Link} from  'react-router-dom'
+import {NavLink} from  'react-router-dom'
 import {connect} from 'react-redux'
 import {logout} from "../../store/actions/authAction";
 
@@ -10,12 +10,12 @@ const Header = props =>{
     <nav className='header__wrapper'>
       <div className='header container'>
         <h1>
-          <Link to='/'>React Blog</Link>
+          <NavLink to='/' exact>React Blog</NavLink>
         </h1>
         {props.user
           ? <ul>
             <li>
-              <Link to='/add'>Add article</Link>
+              <NavLink to='/add'>Add article</NavLink>
             </li>
           </ul>
           : null
@@ -24,7 +24,7 @@ const Header = props =>{
         {props.user
           ? <ul>
             <li>
-              <Link to={`/user/${props.user.id}`}>{props.user.name}</Link>
+              <NavLink to={`/author/${props.user.id}`}>{props.user.name}</NavLink>
             </li>
             <li>
               <span onClick={props.logout}>Logout</span>
@@ -32,10 +32,10 @@ const Header = props =>{
           </ul>
           : <ul>
             <li>
-              <Link to='/login'>Sign in</Link>
+              <NavLink to='/login'>Sign in</NavLink>
             </li>
             <li>
-              <Link to='/register'>Sign up</Link>
+              <NavLink to='/register'>Sign up</NavLink>
             </li>
           </ul>
         }

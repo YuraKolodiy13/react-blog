@@ -7,7 +7,7 @@ import Categories from "../../components/Categories/Categories";
 import Authors from "../../components/Authors/Authors";
 import Button from '@material-ui/core/Button';
 
-class User extends Component {
+class AuthorPage extends Component {
 
   constructor(props) {
     super(props);
@@ -64,4 +64,4 @@ const mapDispatchToProps = {
   getPosts: getPosts
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(User)
+export default connect(mapStateToProps, mapDispatchToProps)(AuthorPage)
