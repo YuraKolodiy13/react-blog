@@ -88,7 +88,7 @@ class EditPost extends Component{
 
   render(){
     return(
-      <ValidatorForm onSubmit={this.onSubmit} className='addPost editPost'>
+      <ValidatorForm onSubmit={this.onSubmit} className={`addPost editPost ${this.props.themeBg === 'night' ? 'night' : ''}`}>
         <TextValidator
           ref={this.state.title}
           id="outlined-basic"
@@ -165,7 +165,8 @@ class EditPost extends Component{
 
 const mapStateToProps = state => {
   return{
-    categories: state.posts.categories
+    categories: state.posts.categories,
+    themeBg: state.posts.themeBg
   }
 };
 

@@ -1,6 +1,57 @@
 body{
   font-family: 'Prompt', serif;
-  margin-top: 100px;
+  margin: 0;
+  .app-container{
+    //background-color: #e6e6e6;
+    padding-top: 100px;
+    &.night{
+      background: #181818;
+      .header__wrapper,
+      .MuiFormLabel-root,
+      .RichTextEditor__root___2QXK-{
+        background-color: #181818!important;
+      }
+      .header{
+        .button__switcher {
+          left: calc(100% - 24px);
+        }
+        .button__day {
+          filter: brightness(1.4);
+        }
+      }
+      *{
+        color: #e6e6e6;
+      }
+      .fab{
+        background-color: #e6e6e6;
+      }
+      .posts__item{
+        background-color: #181818;
+        box-shadow: none;
+        border: 1px solid #393939;
+      }
+      .MuiOutlinedInput-notchedOutline,
+      .radio{
+        border-color: #e6e6e6;
+      }
+      .addPost__file{
+        background-color: #181818;
+        border: 1px solid #e6e6e6;
+      }
+    }
+    &:not(.night){
+      .header{
+        .button__night {
+          filter: brightness(2.3);
+        }
+      }
+    }
+    &>.container{
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 100px);
+    }
+  }
   .container {
     max-width: 1170px;
     margin: 0 auto;
@@ -13,11 +64,7 @@ body{
     @media (max-width: 768px) {
       max-width: 100%;
     }
-    &.app-container{
-      display: flex;
-      flex-direction: column;
-      min-height: calc(100vh - 110px);
-    }
+
   }
   .MuiFormControl-root {
     margin: 0 0 40px;
@@ -48,6 +95,9 @@ body{
   .MuiSelect-select:focus{
     background-color: #fff;
   }
+  .MuiFormHelperText-root.Mui-error{
+    color: #f44336;
+  }
   .trigger__wrap{
     .trigger{
       .MuiFormLabel-root{
@@ -76,4 +126,7 @@ body{
       min-height: 200px;
     }
   }
+}
+.MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline {
+  border-color: #f44336!important;
 }

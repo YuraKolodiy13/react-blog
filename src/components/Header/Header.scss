@@ -6,7 +6,7 @@
   padding: 15px 0;
   &.fixed{
     position: fixed;
-    z-index: 20;
+    z-index: 1400;
     background: #fff;
     box-shadow: 3px 7px 15px 2px rgba(0,0,0,.15);
   }
@@ -34,7 +34,7 @@
       li{
         margin-left: 10px;
         a, span{
-          color: #000;
+          //color: #000;
           text-decoration: none;
           transition: .3s;
           cursor: pointer;
@@ -43,6 +43,46 @@
             color: #a0cc50;
           }
         }
+      }
+    }
+    a, span{
+      color: #000;
+    }
+    .header__switcher{
+      width: 48px;
+      height: 24px;
+      border-radius: 12px;
+      background-color: #3f51b5;
+      display: flex;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      margin: 0 10px 0 8px;
+      .button__day {
+        background-image: url('day-night.svg');
+        background-position: -56px 4px;
+        z-index: 1;
+        width: 24px;
+        height: 24px;
+        transition: filter 250ms ease;
+      }
+      .button__night {
+        background-image: url('day-night.svg');
+        background-position: 5px 5px;
+        z-index: 1;
+        width: 24px;
+        height: 24px;
+        transition: filter 250ms ease;
+      }
+      .button__switcher {
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        background-color: #e6e6e6;
+        position: absolute;
+        transition: left 250ms ease, background-color 250ms;
+        top: 0;
+        left: 0;
       }
     }
   }

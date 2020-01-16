@@ -12,3 +12,4 @@ export const EDIT_POST = 'EDIT_POST';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const CHANGE_BG_COLOR = 'CHANGE_BG_COLOR';

@@ -30,22 +30,30 @@ class App extends Component{
 
   render(){
     return(
-      <div className='container app-container'>
-        <Header/>
-        <Switch>
-          <Route path='/' component={PostsPage} exact/>
-          <Route path='/post/:id' component={Post}/>
-          <Route path='/author/:id' component={AuthorPage}/>
-          <Route path='/category/:id' component={Category}/>
-          <Route path='/add' component={AddPost}/>
-          <Route path='/login' component={Login}/>
-          <Route path='/register' component={Register}/>
-          <Redirect to='/'/>
-        </Switch>
-        <Footer/>
+      <div className={`app-container ${this.props.themeBg === 'night' ? 'night' : ''}`}>
+        <div className="container">
+          <Header/>
+          <Switch>
+            <Route path='/' component={PostsPage} exact/>
+            <Route path='/post/:id' component={Post}/>
+            <Route path='/author/:id' component={AuthorPage}/>
+            <Route path='/category/:id' component={Category}/>
+            <Route path='/add' component={AddPost}/>
+            <Route path='/login' component={Login}/>
+            <Route path='/register' component={Register}/>
+            <Redirect to='/'/>
+          </Switch>
+          <Footer/>
+        </div>
       </div>
     )
   }
 }
 
-export default connect(null, {autoLogin})(App);
+const mapStateToProps = state => {
+  return{
+    themeBg: state.posts.themeBg
+  }
+}
+
+export default connect(mapStateToProps, {autoLogin})(App);

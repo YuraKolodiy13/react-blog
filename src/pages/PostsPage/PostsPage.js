@@ -8,6 +8,7 @@ import Helmet from 'react-helmet'
 import Categories from "../../components/Categories/Categories";
 import PostItem from "../../components/PostItem/PostItem";
 import Button from '@material-ui/core/Button';
+import Search from "../../components/Search/Search";
 
 class PostsPage extends Component{
 
@@ -51,6 +52,7 @@ class PostsPage extends Component{
         <div className="sidebar">
           <Categories categoryId={this.props.match.params.id}/>
           <Authors posts={this.props.posts}/>
+          <Search posts={this.props.posts} themeBg={this.props.themeBg}/>
         </div>
       </div>
     )
@@ -60,7 +62,8 @@ class PostsPage extends Component{
 const mapStateToProps = state => {
   return{
     posts: state.posts.posts,
-    loading: state.posts.loading
+    loading: state.posts.loading,
+    themeBg: state.posts.themeBg
   }
 };
 const mapDispatchToProps = {

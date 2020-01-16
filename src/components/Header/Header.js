@@ -3,6 +3,7 @@ import './Header.scss'
 import {NavLink} from  'react-router-dom'
 import {connect} from 'react-redux'
 import {logout} from "../../store/actions/authAction";
+import {changeBgColor} from "../../store/actions/postsAction";
 
 const Header = props =>{
 
@@ -20,6 +21,12 @@ const Header = props =>{
           </ul>
           : null
         }
+
+        <div className="header__switcher">
+          <div className="button__day" onClick={() => props.changeBgColor('day')}/>
+          <div className="button__night" onClick={() => props.changeBgColor('night')}/>
+          <div className={`button__switcher`}/>
+        </div>
 
         {props.user
           ? <ul>
@@ -53,6 +60,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps ={
-  logout: logout
+  logout: logout,
+  changeBgColor: changeBgColor
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

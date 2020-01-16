@@ -107,8 +107,8 @@ class Register extends Component{
             name='password'
             onChange={this.changeValue}
             onBlur={this.onBlur}
-            validators={['required']}
-            errorMessages={['this field is required']}
+            validators={['required', 'minStringLength:6']}
+            errorMessages={['this field is required', 'Need at least 6 characters']}
           >
           </TextValidator>
         </div>
@@ -117,13 +117,13 @@ class Register extends Component{
           <TextValidator
             className='form__password trigger'
             type='password'
-            label='Password2'
+            label='Repeat Password'
             variant="outlined"
             name='password2'
             onChange={this.changeValue}
             onBlur={this.onBlur}
-            validators={['isPasswordMatch', 'required']}
-            errorMessages={['password mismatch', 'this field is required']}
+            validators={['isPasswordMatch', 'required', 'minStringLength:6']}
+            errorMessages={['password mismatch', 'this field is required', 'Need at least 6 characters']}
             value={this.state.password2}
           >
           </TextValidator>

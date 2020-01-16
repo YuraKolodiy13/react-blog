@@ -5,7 +5,7 @@ import {
   GET_POST_SUCCESS,
   GET_POSTS_START,
   GET_POSTS_SUCCESS,
-  EDIT_POST, ADD_COMMENT, DELETE_COMMENT, EDIT_COMMENT
+  EDIT_POST, ADD_COMMENT, DELETE_COMMENT, EDIT_COMMENT, CHANGE_BG_COLOR
 } from "./actionType";
 import axios from "axios/index";
 
@@ -89,5 +89,13 @@ export const editComment = (postId, commentId, comment) => async dispatch => {
   // console.log(res.data, 42354)
   dispatch({
     type: EDIT_COMMENT
+  })
+};
+
+export const changeBgColor = (type) => async dispatch => {
+  console.log(type);
+  dispatch({
+    type: CHANGE_BG_COLOR,
+    payload: type
   })
 };

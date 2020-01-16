@@ -1,6 +1,6 @@
 import {
   ADD_COMMENT,
-  ADD_POST, DELETE_COMMENT,
+  ADD_POST, CHANGE_BG_COLOR, DELETE_COMMENT,
   DELETE_POST, EDIT_COMMENT, EDIT_POST,
   GET_POST_START,
   GET_POST_SUCCESS,
@@ -19,7 +19,8 @@ const initialState = {
     {label: 'education'},
     {label: 'politics'},
     {label: 'kids'}
-  ]
+  ],
+  themeBg: localStorage.getItem('themeBg')
 };
 
 const postReducer = (state = initialState, action) => {
@@ -66,6 +67,12 @@ const postReducer = (state = initialState, action) => {
     case EDIT_COMMENT:
       return {
         ...state
+      };
+    case CHANGE_BG_COLOR:
+      localStorage.setItem('themeBg', action.payload)
+      return {
+        ...state,
+        themeBg: action.payload
       };
 
     default:
