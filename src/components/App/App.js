@@ -12,6 +12,7 @@ import {connect} from "react-redux";
 import {autoLogin} from "../../store/actions/authAction";
 import Footer from "../Footer/Footer";
 import Category from "../../pages/Category/Category";
+import Album from "../Album/Album";
 
 class App extends Component{
   componentDidMount(){
@@ -39,6 +40,7 @@ class App extends Component{
             <Route path='/author/:id' component={AuthorPage}/>
             <Route path='/category/:id' component={Category}/>
             <Route path='/add' component={AddPost}/>
+            <Route path='/album' component={Album}/>
             <Route path='/login' component={Login}/>
             <Route path='/register' component={Register}/>
             <Redirect to='/'/>

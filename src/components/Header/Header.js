@@ -31,6 +31,9 @@ const Header = props =>{
         {props.user
           ? <ul>
             <li>
+              <NavLink to="/album">Album</NavLink>
+            </li>
+            <li>
               <NavLink to={`/author/${props.user.id}`}>{props.user.name}</NavLink>
             </li>
             <li>

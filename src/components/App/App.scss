@@ -57,6 +57,7 @@ body{
     margin: 0 auto;
     padding: 0 30px;
     width: 100%;
+    box-sizing: border-box;
     @media (max-width: 1200px){
       max-width: 970px;
       width: auto;
