@@ -2,17 +2,11 @@
   position: relative;
   box-sizing: border-box;
   display: grid;
-  //grid-template-columns: repeat(auto-fit, 200px);
   grid-auto-rows: 200px;
   grid-gap: 0.5rem;
   grid-auto-flow: dense;
 
   grid-template-columns: repeat(4, 1fr);
-
-  //@media (min-width: 790px) {
-  //  grid-template-columns: repeat(4, 1fr);
-  //}
-
   .destination {
     position: relative;
     overflow: hidden;

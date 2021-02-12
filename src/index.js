@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import App from "./components/App/App";
 import store from './store/store'
+import { hydrate, render } from "react-dom";
 
 
 const app = (
@@ -14,4 +14,9 @@ const app = (
   </Provider>
 );
 
-ReactDOM.render(app, document.querySelector('#root'));
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(app, rootElement);
+} else {
+  render(app, rootElement);
+}
